@@ -4,14 +4,14 @@ os: linux
 
 language: generic
 
-dist: Bionic
+dist: bionic
 
 services:
   - docker
 
 before_install:
   - echo "start creating an image with dockerfile"
-  - docker build -t yeongbba/docker-react-app -f Dockerfile.dev ./docker-react-app-master
+  - docker build -t yeongbba/docker-react-app -f Dockerfile.dev .
 
 script:
   - docker run -e CI=true yeongbba/docker-react-app npm run test -- --coverage
